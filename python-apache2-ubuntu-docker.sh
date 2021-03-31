@@ -1,8 +1,9 @@
 #!/bin/bash
+version='v1.0.8'
 imagename="pythonapache2ubuntu";
 
 unhealthycount=$(docker ps | grep unhealthy | grep $imagename | wc -l);
-healthy=$(docker ps | grep "(healthy)" | grep $imagename | wc -l);
+healthy=$(docker ps | grep "(healthy)" | grep $imagename | grep $version | wc -l);
 starting=$(docker ps | grep starting | grep $imagename | wc -l);
 
 container_dir="/container-data/python-apache-container"
@@ -42,7 +43,7 @@ then
       echo "Unhealthy - restarting";	
       docker stop $imagename 
       docker rm $imagename
-      docker run --name=$imagename --mount type=bind,source=/container-data/python-apache-container/,target=/shared-mount/       -p 172.17.0.1:9000-9100:9000-9100 -p 172.17.0.1:8999:80  -d -i -t digitalreachinsight/python-apache2-ubuntu:v1.0.6
+      docker run --name=$imagename --mount type=bind,source=/container-data/python-apache-container/,target=/shared-mount/       -p 172.17.0.1:9000-9100:9000-9100 -p 172.17.0.1:8999:80  -d -i -t digitalreachinsight/python-apache2-ubuntu:$version
    fi
 fi
 if [ $unhealthycount -eq 0 ]
