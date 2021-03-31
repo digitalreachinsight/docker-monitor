@@ -1,5 +1,5 @@
 #!/bin/bash
-version='1.0.13'
+version='1.0.14'
 imagename="mysql-ubuntu";
 
 unhealthycount=$(docker ps | grep unhealthy | grep $imagename | wc -l);
