@@ -13,7 +13,7 @@ then
       echo "Unhealthy - restarting";	
       docker stop $imagename 
       docker rm $imagename
-      docker container run --name=$imagename --mount type=bind,source=/container-data/postfix-container/,target=/shared-mount/  --mount type=bind,source=/rotating-backups,target=/backups  -p 125:25 -p 1465:465  -p 1993:993 -p 1143:143  -p 1587:587 -d -i -t  digitalreachinsight/postfix-ubuntu:$version
+      docker container run --name=$imagename --mount type=bind,source=/container-data/postfix-container/,target=/shared-mount/  --mount type=bind,source=/rotating-backups,target=/backups  -p 25:25 -p 465:465  -p 993:993 -p 143:143  -p 587:587 -d -i -t  digitalreachinsight/postfix-ubuntu:$version
    fi
 fi
 if [ $unhealthycount -eq 0 ]
