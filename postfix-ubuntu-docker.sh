@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 version='v1.0.16'
 imagename="postfix-ubuntu";
 unhealthycount=$(docker ps | grep unhealthy | grep $imagename | wc -l);
