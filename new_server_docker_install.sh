@@ -17,5 +17,5 @@ apt install -y apt-transport-https ca-certificates curl software-properties-comm
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 apt update
 apt-cache policy docker-ce
-apt install docker-ce
+apt install -y docker-ce
 systemctl status docker
