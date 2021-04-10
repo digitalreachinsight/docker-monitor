@@ -13,7 +13,7 @@ echo "/swapfile   none    swap    sw    0   0" >> /etc/fstab
 # Docker Install
 echo "Installing Docker Now"
 apt update
-apt install -y apt-transport-https ca-certificates curl software-properties-common gnupg-agent
+apt install -y apt-transport-https ca-certificates curl software-properties-common gnupg-agent sshguard
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 apt update
