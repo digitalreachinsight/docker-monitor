@@ -1,5 +1,5 @@
 #!/bin/bash
-version='1.0.1'
+version='1.0.2'
 imagename="mariadb-ubuntu";
 
 unhealthycount=$(docker ps | grep unhealthy | grep $imagename | wc -l);
