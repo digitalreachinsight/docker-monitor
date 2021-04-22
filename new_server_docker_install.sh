@@ -20,4 +20,5 @@ apt update
 apt-cache policy docker-ce
 apt install -y docker-ce
 systemctl status docker
+mkdir /rotating-backups
 
