@@ -14,8 +14,7 @@ then
       echo "Unhealthy - restarting";
       docker stop $imagename 
       docker rm $imagename
-      docker container run --name=$imagename --mount type=bind,source=/container-data/mariadb-container,target=/data  --mount type=bind,source=/rotating-backups,target=/backups -p 172.17.0.1:3306:3306  -
-d -i -t digitalreachinsight/mariadb-ubuntu:$version
+      docker container run --name=$imagename --mount type=bind,source=/container-data/mariadb-container,target=/data  --mount type=bind,source=/rotating-backups,target=/backups -p 172.17.0.1:3306:3306 -d -i -t digitalreachinsight/mariadb-ubuntu:$version
    fi
 fi
 if [ $unhealthycount -eq 0 ]
