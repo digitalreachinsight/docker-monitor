@@ -1,5 +1,5 @@
 #!/bin/bash
-version='v1.0.11'
+version='v1.0.12'
 imagename="phpapache2ubuntu";
 unhealthycount=$(docker ps | grep unhealthy | grep $imagename | wc -l);
 healthy=$(docker ps | grep "(healthy)" | grep $imagename | grep $version | wc -l);
