@@ -1,9 +1,9 @@
 #!/bin/bash
 #version='1.0.6'
 version='2021.16.08.09.5828'
-unhealthycount=$(docker ps | grep unhealthy | grep nginxserver | wc -l);
-healthy=$(docker ps | grep "(healthy)" | grep nginxserver | wc -l);
-starting=$(docker ps | grep starting | grep nginxserver | wc -l);
+unhealthycount=$(docker ps | grep unhealthy | grep nginxserver | grep $imagename | wc -l);
+healthy=$(docker ps | grep "(healthy)" | grep nginxserver | grep $imagename | wc -l);
+starting=$(docker ps | grep starting | grep nginxserver | grep $imagename | wc -l);
 echo $healthy;
 echo $starting;
 container_dir="/container-data/nginx-container"
