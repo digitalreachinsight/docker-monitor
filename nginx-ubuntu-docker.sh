@@ -1,10 +1,10 @@
 #!/bin/bash
 #version='1.0.6'
 version='2021.16.08.09.5828'
-$imagename = ""
-unhealthycount=$(docker ps | grep unhealthy | grep nginxserver | wc -l);
-healthy=$(docker ps | grep "(healthy)" | grep nginxserver | grep $version | wc -l);
-starting=$(docker ps | grep starting | grep nginxserver | wc -l);
+imagename="nginxserver"
+unhealthycount=$(docker ps | grep unhealthy | grep $imagename | wc -l);
+healthy=$(docker ps | grep "(healthy)" | grep $imagename | grep $version | wc -l);
+starting=$(docker ps | grep starting | grep $imagename= | wc -l);
 echo $healthy;
 echo $starting;
 
