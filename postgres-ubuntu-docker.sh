@@ -1,6 +1,6 @@
 #!/bin/bash
 #version='1.0.9'
-version='2021.16.08.09.5828'
+version='2021.12.07.14.5029'
 imagename="postgres-ubuntu";
 
 unhealthycount=$(docker ps | grep unhealthy | grep $imagename | wc -l);
