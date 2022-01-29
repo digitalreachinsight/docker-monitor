@@ -8,6 +8,25 @@ starting=$(docker ps | grep starting | grep $imagename | wc -l);
 echo $healthy;
 echo $starting;
 container_dir="/container-data/nginx-container"
+
+mkdir /container-data/nginx-container/log
+mkdir /container-data/nginx-container/log/nginx
+if [ -d "$container_dir/log" ] 
+then
+   echo "Directory Exists $container_dir/log"
+else
+   mkdir "$container_dir/log"
+fi
+
+if [ -d "$container_dir/log/nginx" ] 
+then
+   echo "Directory Exists $container_dir/log/nginx"
+else
+   mkdir "$container_dir/log/nginx"
+fi
+
+
+
 if [ -d "$container_dir/nginx-config" ] 
 then
    echo "Directory Exists $container_dir/nginx-config"
@@ -30,7 +49,7 @@ then
       echo "Unhealthy - restarting";	
       docker stop nginxserver
       docker rm nginxserver
-      docker container run --name=nginxserver --mount type=bind,source=/container-data/nginx-container/nginx-config,target=/etc/webconfs/nginx/ --mount type=bind,source=/container-data/nginx-container/letsencrypt-config,target=/etc/letsencrypt -p 80:80  -p 443:443 -d -i -t digitalreachinsight/nginx-ubuntu-docker:$version
+      docker container run --name=nginxserver --mount type=bind,source=/container-data/nginx-container/nginx-config,target=/etc/webconfs/nginx/ --mount type=bind,source=/container-data/nginx-container/letsencrypt-config,target=/etc/letsencrypt --mount type=bind,source=/container-data/nginx-container/log/nginx,target=/var/log/nginx -p 80:80  -p 443:443 -d -i -t digitalreachinsight/nginx-ubuntu-docker:$version
    fi
 fi
 if [ $unhealthycount -eq 0 ]
