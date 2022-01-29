@@ -9,8 +9,6 @@ echo $healthy;
 echo $starting;
 container_dir="/container-data/nginx-container"
 
-mkdir /container-data/nginx-container/log
-mkdir /container-data/nginx-container/log/nginx
 if [ -d "$container_dir/log" ] 
 then
    echo "Directory Exists $container_dir/log"
