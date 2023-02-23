@@ -13,7 +13,7 @@ then
       echo "Unhealthy - restarting";
       docker stop $imagename
       docker rm $imagename
-      docker container run --hostname=$1 --name=$imagename -e PUID=33 -e PGID=33 -e PASSWORD=vscode2023 -e TZ=Etc/UTC  --mount type=bind,source=/container-data/vscode-server/config,target=/config/  --mount type=bind,source=/container-data/,target=/container-data/ -e DEFAULT_WORKSPACE=/container-data/ -e PROXY_DOMAIN=vscode.ada02.adarose.com.au -p 8443:8443 -d -i -t  lscr.io/linuxserver/code-server:$version
+      docker container run --hostname=$1 --name=$imagename -e PUID=33 -e PGID=33 -e PASSWORD=vscode2023 -e TZ=Etc/UTC  --mount type=bind,source=/container-data/vscode-server/config,target=/config/  --mount type=bind,source=/container-data/,target=/container-data/ -e DEFAULT_WORKSPACE=/container-data/ -p 8443:8443 -d -i -t  lscr.io/linuxserver/code-server:$version
    fi
 fi
 if [ $unhealthycount -eq 0 ]
