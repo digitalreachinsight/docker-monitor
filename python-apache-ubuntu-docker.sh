@@ -1,6 +1,7 @@
 #!/bin/bash
 #version='1.0.20'
-version='2024.02.12.11.0629'
+#version='2024.02.12.11.0629'
+version='2024.07.06.14.0621'
 imagename="pythonapacheubuntu";
 
 unhealthycount=$(docker ps | grep unhealthy | grep $imagename | wc -l);
