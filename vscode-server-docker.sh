@@ -19,7 +19,7 @@ then
       echo "Unhealthy - restarting";
       docker stop $imagename
       docker rm $imagename
-      docker container run --hostname=$1 --name=$imagename --env-file=$SCRIPTPATH$ENV_FILE --mount type=bind,source=/container-data/vscode-server/config,target=/config/  --mount type=bind,source=/container-data/,target=/container-data/ -e DEFAULT_WORKSPACE=/container-data/ -p 8443:8443 -d -i -t  lscr.io/linuxserver/code-server:$version
+      docker container run --device /dev/fuse --privileged --hostname=$1 --name=$imagename --env-file=$SCRIPTPATH$ENV_FILE --mount type=bind,source=/container-data/vscode-server/config,target=/config/  --mount type=bind,source=/container-data/,target=/container-data/ -e DEFAULT_WORKSPACE=/container-data/ -p 172.17.0.1:8443:8443 -d -i -t  lscr.io/linuxserver/code-server:$version
    fi
 fi
 if [ $unhealthycount -eq 0 ]
