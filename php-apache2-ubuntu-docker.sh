@@ -1,7 +1,8 @@
 #!/bin/bash
 #version='v1.0.12'
 #version='2022.03.23.06.1616'
-version='2024.02.12.11.0629'
+#version='2024.02.12.11.0629'
+version='2024.07.06.14.0621'
 imagename="phpapache2ubuntu";
 unhealthycount=$(docker ps | grep unhealthy | grep $imagename | wc -l);
 healthy=$(docker ps | grep "(healthy)" | grep $imagename | grep $version | wc -l);
